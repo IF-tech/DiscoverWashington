@@ -8,7 +8,7 @@
       ></v-img>
       <v-layout>
         <v-row no-gutters max-height="50vh"
-          ><h2 style="color: white">Washington Hometown</h2></v-row
+          ><h2 style="color: white">Washington Hometown (Dev)</h2></v-row
         >
       </v-layout>
 
