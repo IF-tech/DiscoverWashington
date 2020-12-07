@@ -59,15 +59,11 @@ export default new Vuex.Store({
       const searchString = search;
       const queryString =
       `query MyQuery {
-        searchLocations(limit: 10, filter: {Name: {matchPhrase: "` + searchString + `"}}) {
+        searchLocations(filter: {Name: {match: "lake"}}, limit: 10) {
           items {
             Name
             LocLink
-            Lat
-            Long
-            id
-            PhotoWeb
-            AppLabel
+            Filter
           }
         }
       }

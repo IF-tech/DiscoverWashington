@@ -79,11 +79,12 @@
               <v-checkbox v-model="checkbox" label="Has image"></v-checkbox>
             </v-col> -->
         </v-container>
-        <v-btn style="margin-left: 35px; margin-bottom: 10px">Apply</v-btn>
+        <v-btn @click="applyFilters" style="margin-left: 35px; margin-bottom: 10px">Apply</v-btn>
         <v-btn style="margin-left: 35px; margin-bottom: 10px">Clear</v-btn>
       </div>
       <!-- view digraphs -->
       <div>
+        {{filterArray}}
         {{ "Activity Digraphs: " + selectedActivities }}
         <br />
         {{ "Services Digraphs: " + selectedServices }}
@@ -104,6 +105,8 @@ import SimpleSearch from "../SimpleSearch";
 export default {
   data() {
     return {
+      filterArray: [],
+      keyword: "",
       filters: {
         businessServices: [
           { text: "Bike Store/Sporting Goods", value: "SR" },
@@ -203,6 +206,14 @@ export default {
         "Yakima",
       ],
     };
+  },
+  methods: {
+    applyFilters() {
+      let filterArray = [];
+      filterArray = filterArray.concat(this.selectedServices).concat(this.selectedDays).concat(this.selectedFacilities).concat(this.selectedActivities)
+      this.filterArray = filterArray;
+      this.$store.state.filterArray = filterArray
+    },
   },
 
   components: { SimpleSearch },
