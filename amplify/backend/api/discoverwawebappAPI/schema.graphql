@@ -1,0 +1,74 @@
+type Location @model @searchable {
+  id: ID!
+  LocLink: String!
+  PhotoWeb: String
+  Name: String
+  Web: String
+  Location: String
+  Phone: String
+  Email: String
+  Hours: String
+  Directions: String
+  Management: String
+  Fee: String
+  Pass: String
+  Amenities: String
+  Features: String
+  Facilities: String
+  MoreInfo: String
+  Trail: String
+  Summer: String
+  Winter: String
+  Favorite: String
+  Difficulty: String
+  Reserve: String
+  PhoneRes: String
+  WebRes: String
+  Notes: String
+  Source: String
+  SourceWeb: String
+  Status: String
+  MapCat: String
+  Weather: String
+  Accessible: String
+  BoatDetails: String
+  WinterSurf: String
+  TrailSystem: String
+  AppLabel: String
+  Rules: String
+  RulesWeb: String
+  DogRules: String
+  CampEquip: String
+  Offer: String
+  Font: String
+  Lat: String
+  Long: String
+}
+
+type LocationContent @model {
+  id: ID!
+  Location: Location! @connection
+  rootcomments: [Comment] @connection(name: "LocationComments")
+  tripreports: [TripReport] @connection(name: "TripReports")
+}
+
+type Comment @model {
+  id: ID!
+  createdBy: String
+  locationContent: LocationContent
+    @connection(name: "LocationComments")
+  parentcomment: Comment @connection
+  childcomments: [Comment] @connection
+  content: String!
+  likes: Int
+}
+
+type TripReport @model {
+  id: ID!
+  locationContent: LocationContent!
+    @connection(name: "TripReports")
+  title: String!
+  content: String!
+  likes: Int
+
+}

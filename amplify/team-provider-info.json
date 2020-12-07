@@ -1,0 +1,20 @@
+{
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-discoverwawebapp-prod-143243-authRole",
+      "UnauthRoleArn": "arn:aws:iam::530427652892:role/amplify-discoverwawebapp-prod-143243-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::530427652892:role/amplify-discoverwawebapp-prod-143243-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-discoverwawebapp-prod-143243-deployment",
+      "UnauthRoleName": "amplify-discoverwawebapp-prod-143243-unauthRole",
+      "StackName": "amplify-discoverwawebapp-prod-143243",
+      "StackId": "arn:aws:cloudformation:us-west-2:530427652892:stack/amplify-discoverwawebapp-prod-143243/ce233540-3292-11eb-b21c-0ad2a2a57daf",
+      "AmplifyAppId": "d1zr1fgtlxerxa"
+    },
+    "categories": {
+      "auth": {
+        "discoverwawebappcd0bb774": {}
+      }
+    }
+  }
+}

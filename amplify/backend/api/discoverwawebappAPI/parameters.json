@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "discoverwawebappAPI",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authdiscoverwawebappcd0bb774",
+            "Outputs.UserPoolId"
+        ]
+    }
+}
