@@ -2,25 +2,23 @@
   <v-container>
     <v-card color="rgb(247, 247, 247, 0.9)">
       <v-container>
-      <v-row>
-      <v-col> <SimpleSearch /></v-col>
-      <v-col cols="4">
-                  <v-select
-            v-model="selectedCounties"
-            :items="counties"
-            label="County"
-            deletableChips="true"
-            single-line
-            hide-details
-            smallChips
-          ></v-select>
-      </v-col>
-</v-row>
-</v-container>
+        <v-row>
+          <v-col> <SimpleSearch /></v-col>
+          <v-col cols="4">
+            <v-select
+              v-model="selectedCounties"
+              :items="counties"
+              label="County"
+              deletableChips="true"
+              single-line
+              hide-details
+              smallChips
+            ></v-select>
+          </v-col>
+        </v-row>
+      </v-container>
       <div>
         <v-container fluid>
-
-
           <v-select
             v-model="selectedServices"
             :items="filters.businessServices"
@@ -85,7 +83,7 @@
         <v-btn style="margin-left: 35px; margin-bottom: 10px">Clear</v-btn>
       </div>
       <!-- view digraphs -->
-      <!-- <div>
+      <div>
         {{ "Activity Digraphs: " + selectedActivities }}
         <br />
         {{ "Services Digraphs: " + selectedServices }}
@@ -95,7 +93,7 @@
         {{ "Pass Digraphs: " + selectedPasses }}
         <br />
         {{ "Facility Digraphs: " + selectedFacilities }}
-      </div> -->
+      </div>
     </v-card>
   </v-container>
 </template>

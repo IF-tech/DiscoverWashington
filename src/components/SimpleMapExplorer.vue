@@ -1,265 +1,275 @@
 <template>
-<div>
-  <v-card>
-    <v-tabs center-active centered show-arrows>
-      <v-tab style="color: #671d26" @click="activateDiscoverMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-map</v-icon
-        >Discover WA
-      </v-tab>
+  <div>
+    <v-card>
+      <v-tabs center-active centered show-arrows>
+        <v-tab style="color: #671d26" @click="activateDiscoverMap()">
+          <v-icon style="margin-right: 10px; color: #671d26">mdi-map</v-icon
+          >Discover WA
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateBikeMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-bike</v-icon>Bike
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateBikeMap()">
+          <v-icon style="margin-right: 10px; color: #671d26">mdi-bike</v-icon
+          >Bike
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateBoatMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-sail-boat</v-icon
-        >Boat
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateBoatMap()">
+          <v-icon style="margin-right: 10px; color: #671d26"
+            >mdi-sail-boat</v-icon
+          >Boat
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateCampMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-tent</v-icon>Camp
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateCampMap()">
+          <v-icon style="margin-right: 10px; color: #671d26">mdi-tent</v-icon
+          >Camp
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateDogMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-dog</v-icon>Dog
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateDogMap()">
+          <v-icon style="margin-right: 10px; color: #671d26">mdi-dog</v-icon>Dog
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateFoodMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-food</v-icon>Food
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateFoodMap()">
+          <v-icon style="margin-right: 10px; color: #671d26">mdi-food</v-icon
+          >Food
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateHikeMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-hiking</v-icon
-        >Hike
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateHikeMap()">
+          <v-icon style="margin-right: 10px; color: #671d26">mdi-hiking</v-icon
+          >Hike
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateHorseMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-horseshoe</v-icon
-        >Horse
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateHorseMap()">
+          <v-icon style="margin-right: 10px; color: #671d26"
+            >mdi-horseshoe</v-icon
+          >Horse
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateKidsMap()">
-        <v-icon style="margin-right: 10px; color: #671d26"
-          >mdi-car-child-seat</v-icon
-        >Kids
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateKidsMap()">
+          <v-icon style="margin-right: 10px; color: #671d26"
+            >mdi-car-child-seat</v-icon
+          >Kids
+        </v-tab>
 
-      <v-tab style="color: #671d26" @click="activateOhvMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-motorbike</v-icon
-        >OHV
-      </v-tab>
-      <v-tab style="color: #671d26" @click="activateWinterMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-snowflake</v-icon
-        >Winter
-      </v-tab>
-      <v-tab style="color: #671d26" @click="activateSnowmobileMap()">
-        <v-icon style="margin-right: 10px; color: #671d26">mdi-pine-tree</v-icon
-        >Snowmobile
-      </v-tab>
+        <v-tab style="color: #671d26" @click="activateOhvMap()">
+          <v-icon style="margin-right: 10px; color: #671d26"
+            >mdi-motorbike</v-icon
+          >OHV
+        </v-tab>
+        <v-tab style="color: #671d26" @click="activateWinterMap()">
+          <v-icon style="margin-right: 10px; color: #671d26"
+            >mdi-snowflake</v-icon
+          >Winter
+        </v-tab>
+        <v-tab style="color: #671d26" @click="activateSnowmobileMap()">
+          <v-icon style="margin-right: 10px; color: #671d26"
+            >mdi-pine-tree</v-icon
+          >Snowmobile
+        </v-tab>
 
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
         <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
         <v-tab-item>
-        <v-card flat>
-          <v-lazy>
-            <iframe
-              :src="$store.state.activeMapLink"
-              allowtransparency="true"
-              scrolling="no"
-              width="100%"
-              :height="mapHeight"
-              frameborder="0"
-            ></iframe>
-          </v-lazy>
-        </v-card>
-      </v-tab-item>
-    </v-tabs>
-  </v-card>
- <v-row justify="center">
-          <v-btn text @click="openMapWindow($store.state.activeMapLink)">
-            <v-icon>mdi-arrow-expand-all</v-icon>Full Frame
-          </v-btn>
-        </v-row>
-</div>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+        <v-tab-item>
+          <v-card flat>
+            <v-lazy>
+              <iframe
+                :src="$store.state.activeMapLink"
+                allowtransparency="true"
+                scrolling="no"
+                width="100%"
+                :height="mapHeight"
+                frameborder="0"
+              ></iframe>
+            </v-lazy>
+          </v-card>
+        </v-tab-item>
+      </v-tabs>
+    </v-card>
+    <v-row justify="center">
+      <v-btn text @click="openMapWindow($store.state.activeMapLink)">
+        <v-icon>mdi-arrow-expand-all</v-icon>Full Frame
+      </v-btn>
+    </v-row>
+  </div>
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
+
 export default {
   data() {
     return {
@@ -1001,6 +1011,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["updateMap"]),
     setActiveMapLink(
       rootURL,
       zoom,
@@ -1015,16 +1026,19 @@ export default {
     ) {
       let mapLink = rootURL + zoom + lat + long;
       if (filtersActive) {
-        this.activeMapLink = mapLink;
+        this.$store.dispatch("updateMap", mapLink);
         console.log("filters active");
       } else {
-        this.activeMapLink = mapLink;
+        this.$store.dispatch("updateMap", mapLink);
+        console.log("updated map");
       }
     },
     activateDiscoverMap() {
       this.$store.state.activeMap = "Discover";
-      this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/ForestArial.jpeg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/pexels-tim-mossholder-3222686.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/ForestArial.jpeg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/pexels-tim-mossholder-3222686.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/discoverwa_dw/",
         "#8.00/",
@@ -1034,8 +1048,10 @@ export default {
     },
     activateBikeMap() {
       this.$store.state.activeMap = "Bike";
-      this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/bike1-dominika-roseclay-4318198.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/bike2-haydan-assoendawy-2883462.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/bike1-dominika-roseclay-4318198.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/bike2-haydan-assoendawy-2883462.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/bikewa_dw/",
         "#8.00/",
@@ -1045,8 +1061,10 @@ export default {
     },
     activateBoatMap() {
       this.$store.state.activeMap = "Boat";
-       this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/boat-felix-mittermeier-1039120.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/boat2-josh-hild-2422557.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/boat-felix-mittermeier-1039120.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/boat2-josh-hild-2422557.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/boatwa_dw/",
         "#8.00/",
@@ -1056,8 +1074,10 @@ export default {
     },
     activateCampMap() {
       this.$store.state.activeMap = "Camp";
-       this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/camp1-roxana-ioana-luca-2419278.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/camp2-daniel-joseph-petty-756780.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/camp1-roxana-ioana-luca-2419278.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/camp2-daniel-joseph-petty-756780.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/campwa_dw/",
         "#8.00/",
@@ -1067,8 +1087,10 @@ export default {
     },
     activateDogMap() {
       this.$store.state.activeMap = "Dog";
-       this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/dog1-chris-f-1144410.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/dog2-1254140.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/dog1-chris-f-1144410.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/dog2-1254140.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/dogwa_dw/",
         "#8.00/",
@@ -1078,8 +1100,10 @@ export default {
     },
     activateFoodMap() {
       this.$store.state.activeMap = "Food";
-       this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/food1.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/food2-breakingpic-3044.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/food1.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/food2-breakingpic-3044.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/foodwa_dw/",
         "#8.00/",
@@ -1089,8 +1113,10 @@ export default {
     },
     activateHikeMap() {
       this.$store.state.activeMap = "Hike";
-       this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/hike1-1194235.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/hike2-lalu-fatoni-732632.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/hike1-1194235.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/hike2-lalu-fatoni-732632.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/hikewa_dw/",
         "#8.00/",
@@ -1100,8 +1126,10 @@ export default {
     },
     activateHorseMap() {
       this.$store.state.activeMap = "Horse";
-       this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/horse1-helena-lopes-3764465.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/horse2-pixabay-210237.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/horse1-helena-lopes-3764465.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/horse2-pixabay-210237.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/horsewa_dw/",
         "#8.00/",
@@ -1111,8 +1139,10 @@ export default {
     },
     activateKidsMap() {
       this.$store.state.activeMap = "Kid";
-       this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/kids1-2143761.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/kid2-syrikova-3933989.jpg";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/kids1-2143761.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/kid2-syrikova-3933989.jpg";
       this.setActiveMapLink(
         "https://mapswa.com/kidwa_dw/",
         "#8.00/",
@@ -1121,22 +1151,43 @@ export default {
       );
     },
     activateOhvMap() {
-    this.$store.state.activeMap = "OHV";
-     this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/Offroad1-bartosz-bartkowiak-3699828.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/offroad2.jpg";
-      this.setActiveMapLink("https://mapswa.com/ohvwa_dw/", "#8.00/", "47/", "-120/");
+      this.$store.state.activeMap = "OHV";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/Offroad1-bartosz-bartkowiak-3699828.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/offroad2.jpg";
+      this.setActiveMapLink(
+        "https://mapswa.com/ohvwa_dw/",
+        "#8.00/",
+        "47/",
+        "-120/"
+      );
     },
-        activateWinterMap() {
-    this.$store.state.activeMap = "Winter";
-    this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/home/pexels-burak-k-1978126.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/home/pexels-francesco-ungaro-5101326.jpg";
-      this.setActiveMapLink("https://mapswa.com/winterwa_dw/", "#8.00/", "47/", "-120/");
+    activateWinterMap() {
+      this.$store.state.activeMap = "Winter";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/home/pexels-burak-k-1978126.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/home/pexels-francesco-ungaro-5101326.jpg";
+      this.setActiveMapLink(
+        "https://mapswa.com/winterwa_dw/",
+        "#8.00/",
+        "47/",
+        "-120/"
+      );
     },
-        activateSnowmobileMap() {
-    this.$store.state.activeMap = "Snowmobile";
-     this.$store.state.drawerImages.left = "https://wht-public-assets.s3-us-west-2.amazonaws.com/snowmobile1-sebastian-voortman-804572.jpg";
-      this.$store.state.drawerImages.right = "https://wht-public-assets.s3-us-west-2.amazonaws.com/snowmobile2-jarod-lovekamp-2404443.jpg";
-      this.setActiveMapLink("https://mapswa.com/snowmobilewa_dw/", "#8.00/", "47/", "-120/");
+    activateSnowmobileMap() {
+      this.$store.state.activeMap = "Snowmobile";
+      this.$store.state.drawerImages.left =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/snowmobile1-sebastian-voortman-804572.jpg";
+      this.$store.state.drawerImages.right =
+        "https://wht-public-assets.s3-us-west-2.amazonaws.com/snowmobile2-jarod-lovekamp-2404443.jpg";
+      this.setActiveMapLink(
+        "https://mapswa.com/snowmobilewa_dw/",
+        "#8.00/",
+        "47/",
+        "-120/"
+      );
     },
     openMapWindow(mapLink) {
       window.open(mapLink, "Full Frame Map", "modal=yes,alwaysRaised=yes");

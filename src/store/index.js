@@ -12,6 +12,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    filterArray: [],
+    appSyncQueryString: "",
     drawerImages: {
       left: "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/ForestArial.jpeg",
       right: "https://wht-public-assets.s3-us-west-2.amazonaws.com/web-images/pexels-tim-mossholder-3222686.jpg"
@@ -27,7 +29,7 @@ export default new Vuex.Store({
       longitude: "-120.273283/",
       filtersActive: false,
       filters: {
-        
+
       },
 
     },
@@ -44,7 +46,12 @@ export default new Vuex.Store({
   mutations: {
     POPULATE_LIST: (state, locs) => {
       state.locList = locs;
-      console.log("list mutated");}
+      console.log("list mutated");
+    },
+
+    UPDATE_MAP: (state, mapURL) =>{
+      state.activeMapLink = mapURL
+    }
 
   },
   actions: {
@@ -78,6 +85,9 @@ export default new Vuex.Store({
           console.log(err);
         });
       },
+  updateMap({commit}, mapString){
+    commit("UPDATE_MAP", mapString);
+  }
    
   },
   modules: {

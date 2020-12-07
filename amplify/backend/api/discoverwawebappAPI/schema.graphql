@@ -43,6 +43,8 @@ type Location @model @searchable {
   Font: String
   Lat: String
   Long: String
+  Filter: String
+  Filter2: String
 }
 
 type LocationContent @model {

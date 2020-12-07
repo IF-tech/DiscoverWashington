@@ -48,6 +48,8 @@ export const onCreateLocation = /* GraphQL */ `
       Font
       Lat
       Long
+      Filter
+      Filter2
       createdAt
       updatedAt
     }
@@ -100,6 +102,8 @@ export const onUpdateLocation = /* GraphQL */ `
       Font
       Lat
       Long
+      Filter
+      Filter2
       createdAt
       updatedAt
     }
@@ -152,6 +156,8 @@ export const onDeleteLocation = /* GraphQL */ `
       Font
       Lat
       Long
+      Filter
+      Filter2
       createdAt
       updatedAt
     }
@@ -206,6 +212,8 @@ export const onCreateLocationContent = /* GraphQL */ `
         Font
         Lat
         Long
+        Filter
+        Filter2
         createdAt
         updatedAt
       }
@@ -285,6 +293,8 @@ export const onUpdateLocationContent = /* GraphQL */ `
         Font
         Lat
         Long
+        Filter
+        Filter2
         createdAt
         updatedAt
       }
@@ -364,6 +374,8 @@ export const onDeleteLocationContent = /* GraphQL */ `
         Font
         Lat
         Long
+        Filter
+        Filter2
         createdAt
         updatedAt
       }
@@ -446,6 +458,8 @@ export const onCreateComment = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }
@@ -552,6 +566,8 @@ export const onUpdateComment = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }
@@ -658,6 +674,8 @@ export const onDeleteComment = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }
@@ -763,6 +781,8 @@ export const onCreateTripReport = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }
@@ -834,6 +854,8 @@ export const onUpdateTripReport = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }
@@ -905,6 +927,8 @@ export const onDeleteTripReport = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }

@@ -48,6 +48,8 @@ export const getLocation = /* GraphQL */ `
       Font
       Lat
       Long
+      Filter
+      Filter2
       createdAt
       updatedAt
     }
@@ -105,6 +107,8 @@ export const listLocations = /* GraphQL */ `
         Font
         Lat
         Long
+        Filter
+        Filter2
         createdAt
         updatedAt
       }
@@ -161,6 +165,8 @@ export const getLocationContent = /* GraphQL */ `
         Font
         Lat
         Long
+        Filter
+        Filter2
         createdAt
         updatedAt
       }
@@ -249,6 +255,8 @@ export const listLocationContents = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }
@@ -317,6 +325,8 @@ export const getComment = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }
@@ -457,6 +467,8 @@ export const getTripReport = /* GraphQL */ `
           Font
           Lat
           Long
+          Filter
+          Filter2
           createdAt
           updatedAt
         }
@@ -559,6 +571,8 @@ export const searchLocations = /* GraphQL */ `
         Font
         Lat
         Long
+        Filter
+        Filter2
         createdAt
         updatedAt
       }

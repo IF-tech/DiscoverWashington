@@ -16,5 +16,23 @@
         "discoverwawebappcd0bb774": {}
       }
     }
+  },
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-discoverwawebapp-staging-102425-authRole",
+      "UnauthRoleArn": "arn:aws:iam::530427652892:role/amplify-discoverwawebapp-staging-102425-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::530427652892:role/amplify-discoverwawebapp-staging-102425-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-discoverwawebapp-staging-102425-deployment",
+      "UnauthRoleName": "amplify-discoverwawebapp-staging-102425-unauthRole",
+      "StackName": "amplify-discoverwawebapp-staging-102425",
+      "StackId": "arn:aws:cloudformation:us-west-2:530427652892:stack/amplify-discoverwawebapp-staging-102425/70a7c340-38b9-11eb-90fd-067714b800aa",
+      "AmplifyAppId": "d1zr1fgtlxerxa"
+    },
+    "categories": {
+      "auth": {
+        "discoverwawebappcd0bb774": {}
+      }
+    }
   }
 }
