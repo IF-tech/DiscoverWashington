@@ -1,4 +1,14 @@
-type Location @model @searchable {
+type Location @model @searchable @auth(
+
+    rules: [
+
+      { allow: public, operations: [read]},
+
+      { allow: owner }
+
+    ]
+
+  ) {
   id: ID!
   LocLink: String!
   PhotoWeb: String
@@ -45,6 +55,7 @@ type Location @model @searchable {
   Long: String
   Filter: String
   Filter2: String
+  
 }
 
 type LocationContent @model {
@@ -52,6 +63,7 @@ type LocationContent @model {
   Location: Location! @connection
   rootcomments: [Comment] @connection(name: "LocationComments")
   tripreports: [TripReport] @connection(name: "TripReports")
+  rating: Int
 }
 
 type Comment @model {

@@ -83,7 +83,7 @@
             {{ Amenities }}
             <br />
             <br />
-            {{ Sports }}
+           
           </v-col>
           <v-col cols="12" md="6" style="text-align: center">
             <img style="max-width: 66vw" :src="PhotoWeb" alt />
@@ -307,6 +307,7 @@ export default {
         createdOn: "",
         likes: 0,
         locationID: "",
+        locationContentID: ""
       },
       comments: [],
 

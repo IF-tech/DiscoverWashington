@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h2 style="color: white">{{Name}}</h2>
     <v-card color="rgb(247, 247, 247, 0.9)">
       <v-container>
         <v-row>
@@ -79,12 +80,16 @@
               <v-checkbox v-model="checkbox" label="Has image"></v-checkbox>
             </v-col> -->
         </v-container>
-        <v-btn @click="applyFilters" style="margin-left: 35px; margin-bottom: 10px">Apply</v-btn>
+        <v-btn
+          @click="applyFilters"
+          style="margin-left: 35px; margin-bottom: 10px"
+          >Apply</v-btn
+        >
         <v-btn style="margin-left: 35px; margin-bottom: 10px">Clear</v-btn>
       </div>
       <!-- view digraphs -->
       <div>
-        {{filterArray}}
+        {{ filterArray }}
         {{ "Activity Digraphs: " + selectedActivities }}
         <br />
         {{ "Services Digraphs: " + selectedServices }}
@@ -101,6 +106,7 @@
 
 <script>
 import SimpleSearch from "../SimpleSearch";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 
 export default {
   data() {
@@ -208,11 +214,84 @@ export default {
     };
   },
   methods: {
-    applyFilters() {
+     ...mapActions(["populateLocList"]),
+    setActiveMapLink(
+      rootURL,
+      zoom,
+      lat,
+      long,
+      filtersActive,
+      businessFilters,
+      dayFilters,
+      recreationFilters,
+      passFilters,
+      activityFilters
+    ) {
+      if (filtersActive) {
+        let mapLink = rootURL + zoom + lat + long + "?filters=true";
+        if (businessFilters != []) {
+          mapLink = mapLink + "&businesses=" + businessFilters.toString();
+        }
+        if (dayFilters != []) {
+          mapLink = mapLink + "&days=" + dayFilters.toString();
+        }
+        if (recreationFilters != []) {
+          mapLink =
+            mapLink + "&recreation=" + recreationFilters.toString();
+        }
+        if (passFilters != []) {
+          mapLink = mapLink + "&pass=" + passFilters.toString();
+        }
+        if (activityFilters != []) {
+          mapLink = mapLink + "&activities=" + activityFilters.toString();
+        }
+
+        console.log("map url is " + mapLink);
+        this.$store.dispatch("updateMap", mapLink);
+        console.log("filters active");
+      } else {
+        //filters not active, send truncated url
+        let mapLink = rootURL + zoom + lat + long;
+        this.$store.dispatch("updateMap", mapLink);
+        console.log("updated map");
+      }
+    },
+    async applyFilters() {
+      //create filterArray
       let filterArray = [];
-      filterArray = filterArray.concat(this.selectedServices).concat(this.selectedDays).concat(this.selectedFacilities).concat(this.selectedActivities)
+      filterArray = filterArray
+        .concat(this.selectedServices)
+        .concat(this.selectedDays)
+        .concat(this.selectedFacilities)
+        .concat(this.selectedActivities);
       this.filterArray = filterArray;
-      this.$store.state.filterArray = filterArray
+      this.$store.state.filterArray = filterArray;
+
+      //construct URL to pass to map frame
+      //set activemap to new url with filters included
+      this.setActiveMapLink(
+        "https://mapswa.com/bikewa/",
+        "#8.00/",
+        "47/",
+        "-120",
+        true,
+        this.selectedServices,
+        this.selectedDays,
+        this.selectedFacilities,
+        this.selectedPasses,
+        this.selectedActivities
+      );
+
+      //construct query to send to backend
+      //populate locList
+      let filters = this.filterArray;
+      await this.$store.dispatch("populateLocList", filters)
+      .then(response=> console.log("filtered locations added"))
+      .catch(err => console.log(err));
+
+
+
+
     },
   },
 
